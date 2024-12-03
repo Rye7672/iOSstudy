@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS 学习资源分享 - 黑麦</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* 统一字体 */
+    background-color: #1f1f1f; /* 深色背景，提升科技感 */
+    color: #e0e0e0; /* 更柔和的文字颜色 */
+    line-height: 1.6;
+}
+
+/* 头部与导航栏样式 */
+header {
+    background-color: #212121; /* 深色背景 */
+    padding: 20px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #1E90FF; /* 蓝色 */
+    border-bottom: 2px solid #1E90FF; /* 蓝色 */
+}
+
+/* Hero部分 */
+.hero {
+    background: url('images/hero-bg.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    background-position: center;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text h2 {
+    font-size: 4em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* 为标题添加阴影 */
+}
+
+.hero-text p {
+    font-size: 1.3em;
+    margin: 20px 0;
+    opacity: 0.8;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); /* 为文本添加阴影 */
+}
+
+.cta-btn {
+    padding: 12px 30px;
+    background-color: #1E90FF; /* 蓝色 */
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #4682B4; /* 更深的蓝色 */
+    transform: translateY(-5px);
+}
+
+/* Hero背景阴影 */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 增加黑色半透明层，突出文本 */
+    z-index: 1;
+}
+
+/* Footer部分 */
+footer {
+    background-color: #212121;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 1em;
+}
+
+/* 应用展示页样式 */
+.app-gallery {
+    padding: 50px 20px;
+    background-color: #1f1f1f; /* 深色背景 */
+    text-align: center;
+    margin-top: 60px;
+    color: #e0e0e0; /* 更柔和的文字颜色 */
+}
+
+.app-item {
+    display: inline-block;
+    width: 45%;
+    margin: 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #2a2a2a; /* 深色卡片背景 */
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* 增强卡片的阴影效果 */
+}
+
+.app-item img {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.app-item img:hover {
+    transform: scale(1.05); /* 图像悬停时放大 */
+}
+
+.app-details h3 {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.app-details p {
+    font-size: 1.1em;
+    margin: 15px 0;
+}
+
+.app-details .cta-btn {
+    font-size: 1.1em;
+    background-color: #1E90FF; /* 蓝色 */
+    color: white;
+}
+
+.app-details .cta-btn:hover {
+    background-color: #4682B4; /* 更深的蓝色 */
+}
+
+/* 学习资源页样式 */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.learning-resources {
+    margin-top: 30px;
+}
+
+h2 {
+    color: white; /* 使用黑色 */;
+}
+
+h3 {
+    color: #3498db; /* 蓝色 */
+}
+
+.resource-links a {
+    display: block;
+    color: #3498db;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+.resource-links a:hover {
+    text-decoration: underline;
+}
+
+.media-container {
+    margin-top: 30px;
+}
+
+iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+}
+
+.timeline {
+    list-style: none;
+    padding-left: 0;
+    position: relative;
+}
+
+.timeline li {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 30px;
+}
+
+.timeline li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: #3498db;
+    border-radius: 50%;
+}
+
+table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .hero-text h2 {
+        font-size: 2.5em;
+    }
+
+    .cta-btn {
+        font-size: 1em;
+    }
+
+    .app-item {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    footer p {
+        font-size: 0.9em;
+    }
+}
+   
+       body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            position: relative; /* 允许在页面中添加浮动元素 */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: #222;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .learning-resources h3 {
+            font-size: 2.2rem;
+            color: #444;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #00b0ff;
+            padding-bottom: 12px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        ol {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+         /* 全局样式，设置 a 标签的基础样式（应用到其他地方的链接） */
+         a {
+            color: #00b0ff;  /* 链接颜色 */
+            font-weight: 600;  /* 加粗字体 */
+            text-decoration: none; /* 去掉下划线 */
+        }
+
+        a:hover {
+            text-decoration: underline; /* 鼠标悬停时显示下划线 */
+        }
+
+        /* 导航栏的 a 标签不应用任何样式 */
+        header nav a {
+            color: inherit;  /* 继承父元素的颜色，即默认颜色 */
+            font-weight: inherit;  /* 继承父元素的字体重量 */
+            text-decoration: none; /* 去掉下划线 */
+        }
+
+        header nav a:hover {
+            text-decoration: none; /* 鼠标悬停时显示下划线 */
+        }
+    
+
+        /* 侧边目录栏样式 */
+        .sidebar {
+            position: fixed;
+            top: 50px;
+            left: -220px;  /* 初始位置隐藏在屏幕外面 */
+            width: 200px;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: transform 0.3s ease, left 0.3s ease;
+            border-radius: 10px;
+        }
+
+        /* 鼠标悬停时目录栏滑动到屏幕内 */
+        .sidebar:hover {
+            left: 0;  /* 鼠标悬停时显示 */
+        }
+
+        .sidebar h3 {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            font-weight: 600;
+            color: #222;
+            display: inline-block;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            font-size: 1rem;
+            color: #00b0ff;
+            text-decoration: none;
+        }
+
+        /* 视频容器样式 */
+        .media-container {
+            text-align: center;
+            margin-bottom: 40px;
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .media-container p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-top: 15px;
+        }
+
+        footer {
+            background: #222;
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            margin-top: 50px;
+            border-radius: 12px;
+        }
+
+        footer p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .learning-resources h3 {
+                font-size: 1.8rem;
+            }
+
+            table th, table td {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+
+            video {
+                height: 250px;
+            }
+
+            ol {
+                padding-left: 15px;
+            }
+        }
+
+        /* 固定按钮，用于控制侧边目录栏的显示与隐藏 */
+        .toggle-sidebar-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px; /* 移动到左下角 */
+            background-color: #00b0ff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 2000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 侧边目录栏 -->
+    <!-- <div class="sidebar" id="sidebar">
+        <h3>目录</h3>
+        <ul id="toc">
+        </ul>
+    </div> -->
+
+    <!-- 导航栏保持一致 -->
+    <!-- <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">主页</a></li>
+                <li><a href="app.html">应用展示</a></li>
+                <li><a href="learning-resources.html">学习资源</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html">联系方式</a></li>
+            </ul>
+        </nav>
+    </header> -->
+
+    <!-- 页面内容部分 -->
+    <div class="container">
+        <h2>HUT 移动组</h2>
+
+        <section class="learning-resources">
+            <h3 id="section1">iOS 学习路线</h3>
+            <p>可参考：<a href="https://blog.csdn.net/yueliangmua/article/details/134680564?spm=1001.2014.3001.5502" target="_blank" class="btn-link">移动应用开发介绍及iOS方向学习路线（HUT移动组版）</a></p>
+            <br>
+
+            <p>iOS 开发者学习路径的推荐内容通常分为以下几个阶段：</p>
+            <ol>
+                <li><strong>基础：</strong>学习 Swift 编程语言，掌握基础的编程概念。可参考 <a href="https://developer.apple.com/swift/" target="_blank">Apple 官方的 Swift 教程</a>，并通过平台如 LeetCode、HackerRank 等来提升编程能力。</li>
+                <li><strong>UI 开发：</strong>学习 SwiftUI 或 UIKit，掌握界面开发的基础。推荐先从 SwiftUI 开始，快速构建响应式界面。</li>
+                <li><strong>网络请求和数据管理：</strong>学习使用 URLSession、Alamofire 等进行网络请求。了解如何处理本地数据存储，如 CoreData、UserDefaults 等。</li>
+                <li><strong>项目实践：</strong>开始开发实际的 iOS 项目，如 Todo List、天气应用等。这些项目可帮助深入理解 iOS 开发的各个方面，积累开发经验。</li>
+                <li><strong>发布与优化：</strong>学习如何优化应用性能、进行内存管理，并最终将应用发布到 App Store。可以参考 Apple 的 <a href="https://developer.apple.com/app-store/" target="_blank">App Store 官方指南</a>。</li>
+            </ol>
+
+            <h3 id="section2">学习资源</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>资源类型</th>
+                        <th>名称</th>
+                        <th>链接</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SwiftUI</td>
+                        <td>SwiftUI 100 Days</td>
+                        <td><a href="https://www.hackingwithswift.com/100/swiftui" target="_blank">访问链接</a></td>
+                    </tr>
+                    <tr>
+                        <td>SwiftUI</td>
+                        <td>WWDC 2020 SwiftUI</td>
+                        <td><a href="https://developer.apple.com/cn/videos/play/wwdc2020/10034/" target="_blank">观看视频</a></td>
+                    </tr>
+                    <tr>
+                        <td>SwiftUI</td>
+                        <td>SwiftUI ：构建列表与导航</td>
+                        <td><a href="https://developer.apple.com/tutorials/swiftui/building-lists-and-navigation" target="_blank">访问链接</a></td>
+                    </tr>
+                    <tr>
+                        <td>API</td>
+                        <td>常用API中心</td>
+                        <td><a href="https://www.mxnzp.com/doc/list" target="_blank">访问链接</a></td>
+                    </tr>
+                    <tr>
+                        <td>交流中心</td>
+                        <td>Stack Overflow</td>
+                        <td><a href="https://stackoverflow.com" target="_blank">访问链接</a></td>
+                    </tr>
+                    <tr>
+                        <td>交流中心</td>
+                        <td>稀土掘金</td>
+                        <td><a href="https://juejin.cn" target="_blank">访问链接</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- <h3 id="section3">视频教程</h3>
+            <div class="media-container">
+                <video controls>
+                    <source src="videos/swift.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+                <p>Swift 入门介绍</p>
+            </div> -->
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 黑麦 | 版权所有</p>
+    </footer>
+
+    <!-- 切换目录栏显示与隐藏的按钮 -->
+    <!-- <button class="toggle-sidebar-btn" id="toggle-sidebar-btn">☰</button>
+
+    <script>
+        // 获取所有 h3 元素
+        const headings = document.querySelectorAll('h3');
+        const toc = document.getElementById('toc');
+
+        // 生成目录
+        headings.forEach((heading, index) => {
+            const link = document.createElement('a');
+            link.href = `#section${index + 1}`;
+            link.textContent = heading.textContent;
+
+            const listItem = document.createElement('li');
+            listItem.appendChild(link);
+            toc.appendChild(listItem);
+        });
+
+        // 侧边目录栏显示与隐藏
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggle-sidebar-btn');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script> -->
+
+</body>
+</html>
